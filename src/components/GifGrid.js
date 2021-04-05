@@ -1,29 +1,27 @@
 /** @format */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { GifGridItem } from './GifGridItem';
+import { getGifs } from '../helpers/getGifs';
 
 export const GifGrid = ({ category }) => {
-	const API_KEY = 'IOKixTh0CF2zErhoctHCjTKpJUJN6XAQ';
-	const LIMIT = 10;
+	const [images, setImages] = useState([]);
 
-	const getGifs = async () => {
-		const url = `https://api.giphy.com/v1/gifs/search?q=Rick+and+Morty&limit=${LIMIT}&api_key=${API_KEY}`;
-		const resp = await fetch(url);
-		const { data } = await resp.json();
-		const gifs = data.map((img) => {
-			return {
-				id: img.id,
-				title: img.title,
-				url: img.images?.downsized_medium.url,
-			};
-		});
-		console.log(gifs);
-	};
-	getGifs();
+	useEffect(() => {
+		getGifs(category).then((imgs) => setImages(imgs));
+	}, [category]);
 
 	return (
-		<div>
-			<h3>{category}</h3>
-		</div>
+		<>
+			<h3 className='card-title'>{category}</h3>
+			<div className='card-grid'>
+				{images.map((img) => {
+					return <GifGridItem key={img.id} {...img} />;
+				})}
+				{/* {images.map(({id, title}) => { con desestructuracion.
+					return <li key={id}>{title}</li>;
+				})} */}
+			</div>
+		</>
 	);
 };

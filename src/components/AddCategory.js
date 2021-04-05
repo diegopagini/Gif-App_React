@@ -15,7 +15,7 @@ export const AddCategory = ({ setCategories }) => {
 		// console.log('Submit hecho');
 
 		if (inputValue.trim().length > 2) {
-			setCategories((categories) => [...categories, inputValue]);
+			setCategories((categories) => [inputValue, ...categories]);
 			setInputValue('');
 		}
 	};
@@ -23,7 +23,12 @@ export const AddCategory = ({ setCategories }) => {
 	return (
 		<form onSubmit={handleSubmit}>
 			{/* <h1>{inputValue}</h1> */}
-			<input type='text' value={inputValue} onChange={handleInputChange} />
+			<input
+				type='text'
+				value={inputValue}
+				placeholder='Gifs'
+				onChange={handleInputChange}
+			/>
 		</form>
 	);
 };
