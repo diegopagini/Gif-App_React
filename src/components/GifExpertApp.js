@@ -1,5 +1,6 @@
 /** @format */
 import { useState } from 'react';
+import { AddCategory } from './AddCategory';
 
 const GifExpertApp = () => {
 	// const categories = ['One Punch', 'Samurai X', 'Dragon Ball'];
@@ -21,10 +22,9 @@ const GifExpertApp = () => {
 	return (
 		<>
 			<h2>GifExpertApp</h2>
+			<AddCategory />
 			<hr />
-
-			<button onClick={handleAdd}>Agregar</button>
-
+			{/* <button onClick={handleAdd}>Agregar</button> */}
 			{/* como el ngFor de Angular: */}
 			<ol>
 				{categories.map((category) => {
