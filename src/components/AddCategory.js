@@ -26,7 +26,7 @@ export const AddCategory = ({ setCategories }) => {
 			<input
 				type='text'
 				value={inputValue}
-				placeholder='Gifs'
+				placeholder='Busca tus Gifs'
 				onChange={handleInputChange}
 			/>
 		</form>
