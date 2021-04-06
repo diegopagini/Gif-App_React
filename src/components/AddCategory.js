@@ -33,7 +33,6 @@ export const AddCategory = ({ setCategories }) => {
 	);
 };
 
-// eslint-disable-next-line react/no-typos
-AddCategory.proptypes = {
+AddCategory.proTtypes = {
 	setCategories: PropTypes.func.isRequired,
 };
